@@ -7,7 +7,7 @@ public class Email {
 	private String lastName;
 	private String password;
 	private String department;
-	private int mailboxCapacity;
+	private int mailboxCapacity = 500;
 	private String email;
 	private int defaultPasswordLength = 10;
 	private String alternateEmail;
@@ -57,9 +57,36 @@ public class Email {
 	}
 	
 	// Set the mailbox capacity
+		// set the mailbox capacity to 500
+		// this is an example of encapsulation. By setting public void we are hiding the actual properties.
+	public void setMailBoxCapacity(int capacity) {
+		this.mailboxCapacity = capacity;
+	}
 	
 	// Set the alternate email 
+	public void setAlternateEmail (String altEmail) {
+		this.alternateEmail = altEmail;
+	}
 	
 	// Change the password
+	public void changePassword(String password) {
+		this.password = password;
+	}
 	
+	// these are public methods that are accessing the properties
+	// instead of changing the properties directly at a class level I am accessing them through methods. This is an example of data binding and data hiding.
+	public int getMailBoxCapacity () 
+	{ return mailboxCapacity; }
+	
+	public String getAlternateEmail() 
+	{ return alternateEmail; }
+	
+	public String getPassword()
+	{ return password; }
+	
+	public String showInfo() {
+		return "DISPLAY NAME: " + firstName + " " + lastName + " " +
+				"\nCOMPANY EMAIL: " + email + " " +
+				"\nMAILBOX CAPACITY " + mailboxCapacity + " mb" ;
+	}
 }
